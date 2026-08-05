@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sowndharya R — 3rd Year CS Student & Web Developer</title>
+  <meta name="description" content="Engineering ideas into reality through distributed systems, AI pipelines, and high-performance software." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Material Symbols & Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'theme-bg': '#030712',
+            'theme-card': 'rgba(15, 23, 42, 0.65)',
+            'theme-border': 'rgba(255, 255, 255, 0.08)',
+            'theme-muted': '#94a3b8'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-theme-bg text-theme-text font-sans antialiased overflow-x-hidden relative min-h-screen">
+
+  <!-- Ambient Particle Canvas Background -->
+  <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Intro Splash Loader -->
+  <div id="splashLoader" class="fixed inset-0 z-[9999] bg-[#010203] flex items-center justify-center overflow-hidden transition-opacity duration-700">
+    <div class="relative font-bold text-7xl md:text-9xl tracking-tighter text-white select-none">
+      <div id="splashTop" class="splash-split-top text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">SR</div>
+      <div id="splashBottom" class="splash-split-bottom text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">SR</div>
+      <div id="splashLaser" class="absolute top-1/2 left-0 w-full h-[2px] bg-blue-500 shadow-[0_0_25px_#3b82f6] z-10 scale-x-0 transition-transform duration-500"></div>
+    </div>
+  </div>
+
+  <!-- Main Layout Wrapper -->
+  <div class="relative z-10">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-theme-bg/80 backdrop-blur-xl border-b border-theme-border/50">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="flex items-center gap-3 font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
+          <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-mono text-xs shadow-lg shadow-blue-500/20">
+            SR
+          </div>
+          <span id="navName" class="text-white">Sowndharya R</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex gap-8 items-center text-sm font-medium text-theme-muted">
+          <a href="#stack" class="hover:text-blue-400 transition-colors">Stack</a>
+          <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+          <a href="#process" class="hover:text-blue-400 transition-colors">Process</a>
+          <a href="#experience" class="hover:text-blue-400 transition-colors">Experience</a>
+          <a href="#achievements" class="hover:text-blue-400 transition-colors">Achievements</a>
+        </div>
+
+        <!-- Right Action Buttons -->
+        <div class="flex items-center gap-3">
+          <button id="openEditorBtn" class="bg-theme-card border border-theme-border text-theme-text px-4 py-2 rounded-full text-xs font-semibold hover:border-blue-500/50 hover:bg-blue-500/10 transition-all flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm text-blue-400">edit_note</span>
+            <span>Customize</span>
+          </button>
+          
+          <button id="openResumeBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all shadow-lg shadow-blue-600/30 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-sm">description</span>
+            <span>Resume</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-28 pb-20">
+<div class="flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto">
+
+  <!-- Avatar Frame -->
+  <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-2 border-blue-500 overflow-hidden shrink-0 bg-white shadow-[0_0_40px_rgba(59,130,246,0.25)]">
+    <img id="heroAvatar" src="profile.jpeg" alt="Sowndharya R" class="w-full h-full object-cover">
+
+    <!-- Crosshair Accents -->
+    <div class="absolute top-0 left-1/2 w-px h-6 bg-blue-500/50 -translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-1/2 w-px h-6 bg-blue-500/50 -translate-x-1/2"></div>
+    <div class="absolute left-0 top-1/2 h-px w-6 bg-blue-500/50 -translate-y-1/2"></div>
+    <div class="absolute right-0 top-1/2 h-px w-6 bg-blue-500/50 -translate-y-1/2"></div>
+  </div>
+
+  <!-- Hero Text & Details -->
+  <div class="flex flex-col items-center md:items-start text-center md:text-left">
+
+    <!-- Availability Badge -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-400 mb-6 uppercase tracking-widest w-max shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span id="heroStatus">Open to Opportunities</span>
+    </div>
+
+    <!-- Name & Title -->
+    <h1 id="heroName" class="text-4xl md:text-6xl font-extrabold text-white mb-2 tracking-tight">Sowndharya R</h1>
+    <h2 id="heroTitle" class="text-blue-400 text-lg md:text-2xl font-semibold mb-3 font-mono">B.E. Computer Science & Engineering (CGPA: 9.07)</h2>
+
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 mb-5">
+      <span class="material-symbols-outlined text-sm text-blue-400">school</span>
+      <span>Dr NGP Institute of Technology, Coimbatore</span>
+    </div>
+
+    <!-- Bio -->
+    <p id="heroBio" class="text-theme-muted text-sm md:text-base leading-relaxed max-w-2xl mb-8">
+      I am a Computer Science and Engineering student (CGPA 9.07 / 10.0) with a passion for web development and creating user-friendly web applications. I enjoy building responsive websites using HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB, and I am eager to expand my skills through real-world projects and continuous learning.
+    </p>
+
+    <!-- Hero CTAs & Socials -->
+    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-4">
+      <a id="emailBtn"
+       href="mailto:sowndharyaraja2203@gmail.com"
+       class="bg-white text-black px-6 py-4 rounded-xl font-semibold flex items-center gap-2 hover:bg-blue-600 hover:text-white transition-all duration-300">
+       <span class="material-symbols-outlined">mail</span>
+       CONNECT
+       </a>
+
+      <button id="heroResumeBtn" class="bg-transparent border border-theme-border text-white hover:bg-white hover:text-slate-950 px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">description</span>
+        <span>View CV</span>
+      </button>
+
+      <!-- Social Icon Links -->
+      <div class="flex items-center gap-3">
+        <a id="githubLink" href="https://github.com/sowndharyaraja2203" target="_blank" rel="noreferrer" title="GitHub Profile" class="w-12 h-12 rounded-xl border border-theme-border flex items-center justify-center text-theme-muted hover:text-white hover:border-blue-500 transition-colors bg-theme-bg/60">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        
+        <a id="linkedinLink" href="https://www.linkedin.com/in/sowndharya-r-223827325" target="_blank" rel="noreferrer" title="LinkedIn Profile" class="w-12 h-12 rounded-xl border border-theme-border flex items-center justify-center text-theme-muted hover:text-white hover:border-blue-500 transition-colors bg-theme-bg/60">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+
+        <a id="leetcodeLink" href="https://leetcode.com/u/sowndharya_raja-2203" target="_blank" rel="noreferrer" title="LeetCode Profile" class="w-12 h-12 rounded-xl border border-theme-border flex items-center justify-center text-theme-muted hover:text-white hover:border-amber-500 transition-colors bg-theme-bg/60">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.939 5.939 0 0 0 1.271 1.543l3.995 3.739 6.212 5.714a1.374 1.374 0 0 0 2.008-.123l3.228-3.711a1.374 1.374 0 0 0-.141-1.92l-5.694-5.181a1.374 1.374 0 0 1 .04-2.02l5.59-4.811a1.374 1.374 0 0 0-.125-1.968l-3.116-2.617a1.374 1.374 0 0 0-1.916.143l-3.535 4.088a1.374 1.374 0 0 1-2.02.04l-1.375-1.272a1.374 1.374 0 0 1-.04-2.02l5.632-6.529a1.374 1.374 0 0 0-1.916-1.986zM5.484 15.36a1.374 1.374 0 0 1 0 1.942l-1.463 1.463a1.374 1.374 0 0 1-1.943-1.943l1.463-1.463a1.374 1.374 0 0 1 1.943 0z"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+          <!-- Stats Grid Section (GitHub Commits Matrix + LeetCode DSA Breakdown) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 md:mt-20">
+            
+            <!-- GitHub Activity Heatmap Card -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl border border-theme-border bg-theme-card/80 backdrop-blur-xl flex flex-col hover:border-amber-500/40 transition-all duration-300 group h-full">
+              <div>
+                <div class="flex items-center gap-2 mb-3 text-theme-muted">
+                  <span class="material-symbols-outlined text-emerald-400 text-lg">commit</span>
+                  <span class="font-mono uppercase text-xs tracking-widest">GitHub Activity Matrix</span>
+                </div>
+                <div class="text-3xl font-extrabold text-white mb-6">
+                  <span id="githubCommitsCount">412</span> 
+                  <span class="text-xs font-normal text-theme-muted block mt-1">Commits & Contributions this year</span>
+                </div>
+              </div>
+
+              <!-- Interactive Commit Tiles Grid -->
+              <div id="githubGrid" class="grid grid-cols-[repeat(18,minmax(0,1fr))] gap-1.5 opacity-90"></div>
+            </div>
+
+            <!-- DSA & Problem Solving Stats Card -->
+            <div class="glass-card p-6 md:p-8 rounded-3xl border border-theme-border bg-theme-card/80 backdrop-blur-xl flex flex-col hover:border-amber-500/40 transition-all duration-300 group h-full">
+              <div>
+                <div class="flex items-center gap-2 mb-3 text-theme-muted">
+                  <span class="material-symbols-outlined text-amber-400 text-lg">emoji_events</span>
+                  <span class="font-mono uppercase text-xs tracking-widest">Problem Solving Metrics</span>
+                </div>
+                <div class="text-3xl font-extrabold text-white mb-0">
+                  <span id="dsaTotalCount">198</span> 
+                  <span class="text-xs font-normal text-theme-muted block mt-1">LeetCode & DSA Problems Solved</span>
+                </div>
+              </div>
+
+              <!-- DSA Progress Breakdown -->
+              <div class="space-y-2 mt-8">
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium text-slate-300">
+                    <span>Easy</span>
+                    <span id="dsaEasyCount" class="font-mono text-emerald-400">95</span>
+                  </div>
+                  <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div id="dsaEasyBar" class="h-full bg-emerald-400 transition-all duration-1000" style="width: 48%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium text-slate-300">
+                    <span>Medium</span>
+                    <span id="dsaMediumCount" class="font-mono text-amber-400">82</span>
+                  </div>
+                  <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div id="dsaMediumBar" class="h-full bg-amber-400 transition-all duration-1000" style="width: 41%;"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1.5 font-medium text-slate-300">
+                    <span>Hard</span>
+                    <span id="dsaHardCount" class="font-mono text-rose-400">21</span>
+                  </div>
+                  <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                    <div id="dsaHardBar" class="h-full bg-rose-400 transition-all duration-1000" style="width: 11%;"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Section 2: Technical Ecosystem (Orbital Radar) -->
+      <section id="stack" class="py-24 border-y border-theme-border/60 relative overflow-hidden bg-slate-950/40">
+        <div class="max-w-6xl mx-auto px-6">
+          
+          <div class="mb-12 text-center md:text-left">
+            <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Arsenal</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Technical Ecosystem</h2>
+          </div>
+
+          <!-- Orbital Radar Container -->
+          <div class="relative w-full max-w-3xl mx-auto h-[420px] md:h-[550px] flex items-center justify-center">
+            
+            <!-- Central Core Node -->
+            <div class="absolute z-30 w-24 h-24 rounded-full border border-rose-500 bg-slate-950 flex flex-col items-center justify-center shadow-[0_0_35px_rgba(244,63,94,0.4)]">
+              <span class="font-bold text-rose-400 tracking-widest text-xs font-mono uppercase">Core</span>
+              <span class="text-[10px] text-slate-400 font-mono">Engine</span>
+              <div class="absolute inset-0 rounded-full border border-rose-500/40 animate-ping opacity-30"></div>
+            </div>
+
+            <!-- Orbit Ring 1 (Frontend & Core) -->
+            <div id="orbit1" class="absolute rounded-full border border-dashed border-blue-500/30 w-[240px] h-[240px] md:w-[280px] md:h-[280px] animate-orbit-slow"></div>
+
+            <!-- Orbit Ring 2 (Backend & Cloud) -->
+            <div id="orbit2" class="absolute rounded-full border border-dashed border-amber-500/30 w-[380px] h-[380px] md:w-[440px] md:h-[440px] animate-orbit-reverse"></div>
+
+            <!-- Orbit Ring 3 (DevOps & AI) -->
+            <div id="orbit3" class="absolute rounded-full border border-dashed border-emerald-500/30 w-[500px] h-[500px] md:w-[580px] md:h-[580px] animate-orbit-slow"></div>
+
+            <!-- Dynamic Orbit Node Elements will be rendered here by JS -->
+            <div id="orbitNodesContainer" class="absolute inset-0 pointer-events-auto"></div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Section 3: Engineering Projects Showcase -->
+      <section id="projects" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+          
+          <div class="mb-16">
+            <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Showcase</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Engineering Projects</h2>
+          </div>
+
+          <!-- Projects Dynamic Grid -->
+          <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+
+        </div>
+      </section>
+
+
+      <!-- Section 4: Engineering Methodology (Process) -->
+      <section id="process" class="py-24 border-y border-theme-border/60 bg-slate-950/40 relative">
+        <div class="max-w-6xl mx-auto px-6">
+          
+          <div class="text-center mb-16">
+            <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Methodology</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">How I Engineer Solutions</h2>
+          </div>
+
+          <div id="processContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+        </div>
+      </section>
+      
+
+      <!-- Section 5: Experience Timeline -->
+      <section id="experience" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6">
+          
+          <div class="mb-16 text-center">
+            <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Trajectory</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Experience & Background</h2>
+          </div>
+
+          <div id="experienceContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+
+        </div>
+      </section>
+      <!-- Section: Achievements & Participation -->
+<section id="achievements" class="py-24 border-y border-theme-border/60 bg-slate-950/40 relative">
+  <div class="max-w-4xl mx-auto px-6">
+    
+    <div class="mb-16 text-center">
+      <span class="text-blue-400 font-mono text-xs uppercase tracking-widest mb-2 block">Recognition</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold text-white">Achievements & Participation</h2>
+    </div>
+
+    <div id="achievementsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+  </div>
+</section>
+      
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-theme-border/60 bg-theme-bg py-12 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-theme-muted">
+        <div>
+          © <span id="footerYear">2026</span> <strong class="text-white font-semibold">Sowndharya R</strong>. Built with precision & modern aesthetics.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-blue-400 transition-colors">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- Project Detail Overlay Modal -->
+  <div id="projectModal" class="fixed inset-0 z-[999] bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <button id="closeProjectModal" class="absolute top-6 right-6 w-10 h-10 rounded-full border border-slate-700 bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+
+  <!-- Live Resume Viewer Modal -->
+  <div id="resumeModal" class="fixed inset-0 z-[999] bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-4xl w-full bg-white text-slate-900 rounded-2xl p-8 md:p-12 max-h-[92vh] overflow-y-auto relative shadow-2xl font-serif">
+      
+      <!-- Close Button -->
+      <button id="closeResumeModal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors font-sans z-20">
+        <span class="material-symbols-outlined text-base">close</span>
+      </button>
+
+      <!-- Resume Header -->
+      <div class="text-center pb-4 mb-4 border-b-2 border-slate-900">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide uppercase text-slate-900 mb-2">SOWNDHARYA R</h1>
+        <div class="text-xs md:text-sm text-slate-700 font-sans flex flex-wrap items-center justify-center gap-2 md:gap-3">
+          <span>+91 9385772998</span>
+          <span>|</span>
+          <a href="mailto:sowndharyaraja2203@gmail.com" class="text-blue-700 hover:underline">sowndharyaraja2203@gmail.com</a>
+          <span>|</span>
+          <a href="https://linkedin.com/in/SowndharyaR" target="_blank" class="text-blue-700 hover:underline">linkedin.com/in/Sowndharya R</a>
+          <span>|</span>
+          <a href="https://github.com/sowndharyaraja2203" target="_blank" class="text-blue-700 hover:underline">github.com/sowndharyaraja2203</a>
+        </div>
+      </div>
+
+      <div class="space-y-6 text-sm text-slate-800 font-sans">
+        
+        <!-- EDUCATION -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-3">EDUCATION</h2>
+          
+          <div class="mb-3">
+            <div class="flex justify-between items-baseline font-bold text-slate-900">
+              <span>B.E. Computer Science and Engineering</span>
+              <span class="italic font-normal text-xs text-slate-600">2024 – 2028 (Expected)</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-700 mt-0.5">
+              <span>Dr NGP Institute of Technology, Coimbatore</span>
+              <span class="font-bold">CGPA: 9.07 / 10.0</span>
+            </div>
+          </div>
+
+          <div class="flex justify-between text-xs mb-2">
+            <div><strong>12th Standard</strong> — Kalaimagal Vidhyashram Matric Hr. Sec. School, Idappadi</div>
+            <div class="font-bold">2024 | 88.8%</div>
+          </div>
+
+          <div class="flex justify-between text-xs">
+            <div><strong>10th Standard</strong> — Kalaimagal Vidhyashram Matric Hr. Sec. School, Idappadi</div>
+            <div class="font-bold">2022 | 95.8%</div>
+          </div>
+        </div>
+
+        <!-- TECHNICAL SKILLS -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-3">TECHNICAL SKILLS</h2>
+          <ul class="list-disc list-inside text-xs space-y-1 text-slate-800">
+            <li><strong>Programming Languages:</strong> Java, Basic SQL</li>
+            <li><strong>Web Development:</strong> HTML, CSS</li>
+            <li><strong>Tools & Platforms:</strong> VS Code, GitHub</li>
+            <li><strong>Core Subjects:</strong> Data Structures & Algorithms (DSA), Operating Systems (OS), DBMS</li>
+          </ul>
+        </div>
+
+        <!-- PROJECTS -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-3">PROJECTS</h2>
+          
+          <div class="mb-3">
+            <div class="flex justify-between items-baseline font-bold text-slate-900">
+              <span>Track My Career</span>
+              <span class="italic font-normal text-xs text-slate-600">Java | Web Technologies</span>
+            </div>
+            <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5 ml-2 mt-1">
+              <li>Developed a career tracking platform to help students monitor their academic and professional progress.</li>
+              <li>Implemented goal-setting and milestone tracking features with a clean web-based interface.</li>
+            </ul>
+          </div>
+
+          <div class="mb-3">
+            <div class="flex justify-between items-baseline font-bold text-slate-900">
+              <span>Automatic Soil Neutralization System</span>
+              <span class="italic font-normal text-xs text-slate-600">IoT | pH Sensor</span>
+            </div>
+            <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5 ml-2 mt-1">
+              <li>Utilized a pH sensor to continuously monitor soil pH levels and provide real-time data to users.</li>
+              <li>Automated soil neutralization alerts to assist farmers in maintaining optimal crop growth conditions.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-baseline font-bold text-slate-900">
+              <span>Smart City Route Planner</span>
+              <span class="italic font-normal text-xs text-slate-600">DSA | Java</span>
+            </div>
+            <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5 ml-2 mt-1">
+              <li>Designed an efficient city route planning system using Data Structures & Algorithms concepts.</li>
+              <li>Applied graph traversal algorithms to compute optimal routes across city nodes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- INTERNSHIP EXPERIENCE -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-3">INTERNSHIP EXPERIENCE</h2>
+          <div class="flex justify-between items-baseline font-bold text-slate-900">
+            <span>Web Development Intern — Appin Technology, Coimbatore</span>
+            <span class="italic font-normal text-xs text-slate-600">15 Days</span>
+          </div>
+          <ul class="list-disc list-inside text-xs text-slate-700 space-y-0.5 ml-2 mt-1">
+            <li>Gained hands-on experience in web development technologies including HTML and CSS.</li>
+            <li>Worked on building and styling web pages, understanding real-world development workflows.</li>
+          </ul>
+        </div>
+        <a href="#achievements" class="hover:text-blue-400 transition-colors">Achievements</a>
+
+        <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-3">ACHIEVEMENTS & CERTIFICATIONS</h2>
+          <ul class="list-disc list-inside text-xs text-slate-800 space-y-1">
+            <li>Completed certification courses on NPTEL (National Programme on Technology Enhanced Learning).</li>
+            <li>Coursera Certification: Managing, Describing and Analysing Data.</li>
+            <li>Solved problems on LeetCode, demonstrating consistent practice in Data Structures & Algorithms.</li>
+            <li>Paper Presentation at KPR Institute of Engineering and Technology.</li>
+          </ul>
+        </div>
+
+        <!-- STRENGTHS -->
+        <div>
+          <h2 class="text-sm font-extrabold tracking-wider uppercase text-slate-900 border-b border-slate-900 pb-1 mb-2">STRENGTHS</h2>
+          <p class="text-xs text-slate-800 font-medium">Problem Solving • Teamwork • Time Management • Quick Learner</p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-slate-200 flex justify-end gap-4 font-sans">
+        <button onclick="window.print()" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2">
+          <span class="material-symbols-outlined text-sm">print</span>
+          <span>Print / Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Live In-Browser Portfolio Editor Drawer -->
+  <div id="editorDrawer" class="fixed inset-y-0 right-0 z-[1000] w-full max-w-md bg-slate-950 border-l border-slate-800 p-6 overflow-y-auto translate-x-full transition-transform duration-300 shadow-2xl">
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex items-center gap-2 text-blue-400">
+        <span class="material-symbols-outlined">edit_note</span>
+        <h3 class="font-bold text-lg text-white">Live Portfolio Editor</h3>
+      </div>
+      <button id="closeEditorDrawer" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white">
+        <span class="material-symbols-outlined text-sm">close</span>
+      </button>
+    </div>
+
+    <form id="editorForm" class="space-y-4 text-xs">
+      <div>
+        <label class="block text-slate-400 mb-1">Full Name</label>
+        <input type="text" id="editName" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+      </div>
+
+      <div>
+        <label class="block text-slate-400 mb-1">Title / Headline</label>
+        <input type="text" id="editTitle" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+      </div>
+
+      <div>
+        <label class="block text-slate-400 mb-1">Status Badge</label>
+        <input type="text" id="editStatus" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+      </div>
+
+      <div>
+        <label class="block text-slate-400 mb-1">Short Bio</label>
+        <textarea id="editBio" rows="4" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-slate-400 mb-1">Email Address</label>
+        <input type="email" id="editEmail" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-slate-400 mb-1">GitHub Commits</label>
+          <input type="number" id="editCommits" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">DSA Solved Count</label>
+          <input type="number" id="editDsa" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-white focus:border-blue-500 outline-none" />
+        </div>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl uppercase tracking-wider text-xs shadow-lg transition-colors mt-6">
+        Update Portfolio Live
+      </button>
+    </form>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
