@@ -67,17 +67,17 @@ window.portfolioData = {
       architecture: ["Academic Tracking", "Goal Setting", "Progress Monitor", "Responsive UI"]
     },
     {
-      id: "soil-neutralization",
-      name: "Automatic Soil Neutralization System",
-      subtitle: "IoT | pH Sensor",
-      icon: "sensors",
+      id: "network-packet-routing",
+      name: "Network Packet Routing",
+      subtitle: "Java | DSA | Computer Networks",
+      icon: "router",
       color: "#8b5cf6",
-      description: "Utilized a pH sensor to continuously monitor soil pH levels and provide real-time data to users.",
-      longDescription: "Automated soil neutralization alerts to assist farmers in maintaining optimal crop growth conditions using continuous real-time pH telemetry.",
-      tags: ["IoT", "pH Sensor", "Hardware Automation", "Real-Time Telemetry"],
+      description: "Developed a network packet routing simulation using graph algorithms to find the shortest path between routers.",
+      longDescription: "A Java-based network packet routing simulation that represents routers as graph nodes and connections as weighted edges. The system uses Dijkstra's shortest path algorithm to determine an efficient routing path for packets between source and destination routers.",
+      tags: ["Java", "DSA", "Graph Algorithms", "Dijkstra Algorithm", "Computer Networks"],
       github: "https://github.com/sowndharyaraja2203",
       demo: "https://github.com/sowndharyaraja2203",
-      architecture: ["pH Sensor", "Monitoring Alert", "Real-Time Data", "Crop Optimizer"]
+      architecture: ["Router Graph", "Packet Queue", "Shortest Path", "Routing Simulation"]
     },
     {
       id: "smart-city-route-planner",
