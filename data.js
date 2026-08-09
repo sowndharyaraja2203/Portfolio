@@ -75,8 +75,8 @@ window.portfolioData = {
       description: "Developed a network packet routing simulation using graph algorithms to find the shortest path between routers.",
       longDescription: "A Java-based network packet routing simulation that represents routers as graph nodes and connections as weighted edges. The system uses Dijkstra's shortest path algorithm to determine an efficient routing path for packets between source and destination routers.",
       tags: ["Java", "DSA", "Graph Algorithms", "Dijkstra Algorithm", "Computer Networks"],
-      github: "https://github.com/sowndharyaraja2203",
-      demo: "https://github.com/sowndharyaraja2203",
+      github: "https://github.com/sowndharyaraja2203/Network-Paket-Routing",
+      demo: "https://github.com/sowndharyaraja2203/Network-Packet-Routing",
       architecture: ["Router Graph", "Packet Queue", "Shortest Path", "Routing Simulation"]
     },
     {
