@@ -7,18 +7,15 @@
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
 }
-
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
 }
-
 body {
   background-color: var(--bg-primary);
   color: #f3f4f6;
   font-family: 'Inter', sans-serif;
 }
-
 /* Glassmorphism Card Style */
 .glass-card {
   background: var(--bg-card);
@@ -27,74 +24,60 @@ body {
   border: 1px solid var(--border-card);
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
-
 .glass-card:hover {
   box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
-
 /* Intro Splash Split Animations */
 .splash-split-top {
   clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   animation: splashTopAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
 .splash-split-bottom {
   clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
   animation: splashBottomAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
 @keyframes splashTopAnim {
   0% { transform: translateY(40px); opacity: 0; }
   50% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-10px); opacity: 1; }
 }
-
 @keyframes splashBottomAnim {
   0% { transform: translateY(-40px); opacity: 0; }
   50% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(10px); opacity: 1; }
 }
-
 /* Orbit Animations */
 @keyframes orbitRotate {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 @keyframes orbitRotateReverse {
   from { transform: rotate(360deg); }
   to { transform: rotate(0deg); }
 }
-
 .animate-orbit-slow {
   animation: orbitRotate 45s linear infinite;
 }
-
 .animate-orbit-reverse {
   animation: orbitRotateReverse 55s linear infinite;
 }
-
 /* Heatmap Tile Colors */
 .heat-level-0 { background-color: rgba(30, 41, 59, 0.4); }
 .heat-level-1 { background-color: rgba(16, 185, 129, 0.3); }
 .heat-level-2 { background-color: rgba(16, 185, 129, 0.55); }
 .heat-level-3 { background-color: rgba(16, 185, 129, 0.8); }
 .heat-level-4 { background-color: rgba(16, 185, 129, 1); }
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: #030712;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #3b82f6;
 }
@@ -105,7 +88,6 @@ body {
     object-position:center 8%;
     border-radius:50%;
 }
-
 .hero-left{
     display:flex;
     align-items:flex-center;

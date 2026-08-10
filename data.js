@@ -17,7 +17,6 @@ window.portfolioData = {
     avatar: "profile.jpeg",
     resumeUrl: "#resume"
   },
-
   stats: {
     commitsThisYear: 200,
     reposCount: 8,
@@ -51,7 +50,6 @@ window.portfolioData = {
       { name: "IoT & OS / DBMS", ring: 3, angle: 300 }
     ]
   },
-
   projects: [
     {
       id: "track-my-career",
@@ -106,7 +104,6 @@ window.portfolioData = {
       architecture: ["Patient Login", "Doctor Listing", "Booking Engine", "History Portal"]
     }
   ],
-
   process: [
     {
       title: "Requirement Analysis",
@@ -125,7 +122,6 @@ window.portfolioData = {
       description: "Verifying edge cases, testing endpoints, managing version control with Git/GitHub, and deploying."
     }
   ],
-
   education: [
     {
       period: "2024 — 2028 (Expected)",
@@ -146,7 +142,6 @@ window.portfolioData = {
       grade: ""
     }
   ],
-
   experience: [
     {
       period: "15 Days Internship",
