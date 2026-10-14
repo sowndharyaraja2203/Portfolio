@@ -90,6 +90,6 @@ body {
 }
 .hero-left{
     display:flex;
-    align-items:flex-center;
+    align-items:center;
     gap:40px;
 }

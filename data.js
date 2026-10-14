@@ -8,38 +8,42 @@ window.portfolioData = {
     location: "Coimbatore, Tamil Nadu, India",
     phone: "+91 9385772998",
     cgpa: "9.07 / 10.0",
-    college: "Dr NGP Institute of Technology, Coimbatore",
-    bio: "I am a third-year Computer Science and Engineering student with a passion for web development and creating user-friendly web applications. I enjoy building responsive websites using HTML, CSS, JavaScript and modern web technologies and I am eager to expand my skills through real-world projects and continuous learning.",
+    college: "Dr. NGP Institute of Technology, Coimbatore",
+    bio: "I am a third-year Computer Science and Engineering student with a passion for web development and creating user-friendly web applications. I enjoy building responsive websites using HTML, CSS, JavaScript, React.js, Java, Spring Boot, and modern web technologies, and I am eager to expand my skills through real-world projects and continuous learning.",
     email: "sowndharyaraja2203@gmail.com",
     github: "https://github.com/sowndharyaraja2203",
-    linkedin: "https://www.linkedin.com/in/sowndharya-r-223827325",
-    leetcode: "https://leetcode.com/u/sowndharya_raja-2203",
-    avatar: "profile.jpeg",
+    linkedin: "https://linkedin.com/in/SowndharyaR",
+    leetcode: "https://leetcode.com/u/sowndharyaraja2203",
+    avatar: "./profile.jpeg",
     resumeUrl: "#resume"
   },
+
   stats: {
     commitsThisYear: 200,
     reposCount: 8,
-    dsaSolved: 243,
+    dsaSolved: 310,
     dsaBreakdown: {
-      easy: 160,
-      medium: 66,
-      hard: 17
+      easy: 150,
+      medium: 110,
+      hard: 50
     }
   },
+
   orbitalSkills: {
     core: [
-      { name: "HTML5", ring: 1, angle: 0 },
-      { name: "CSS3", ring: 1, angle: 90 },
-      { name: "JavaScript (ES6)", ring: 1, angle: 180 },
-      { name: "Responsive Web", ring: 1, angle: 270 }
+      { name: "React.js", ring: 1, angle: 0 },
+      { name: "HTML5 & CSS3", ring: 1, angle: 72 },
+      { name: "JavaScript (ES6)", ring: 1, angle: 144 },
+      { name: "Responsive Web", ring: 1, angle: 216 },
+      { name: "UI Components", ring: 1, angle: 288 }
     ],
     backend: [
       { name: "Java", ring: 2, angle: 0 },
-      { name: "Node.js", ring: 2, angle: 72 },
-      { name: "Basic SQL", ring: 2, angle: 144 },
-      { name: "Express.js", ring: 2, angle: 216 },
-      { name: "MongoDB", ring: 2, angle: 288 }
+      { name: "Spring Boot", ring: 2, angle: 60 },
+      { name: "MySQL", ring: 2, angle: 120 },
+      { name: "Node.js & Express", ring: 2, angle: 180 },
+      { name: "Basic SQL", ring: 2, angle: 240 },
+      { name: "MongoDB", ring: 2, angle: 300 }
     ],
     devopsAi: [
       { name: "Git & GitHub", ring: 3, angle: 0 },
@@ -50,32 +54,46 @@ window.portfolioData = {
       { name: "IoT & OS / DBMS", ring: 3, angle: 300 }
     ]
   },
+
   projects: [
+    {
+      id: "code-quest",
+      name: "CodeQuest",
+      subtitle: "React.js | Java | Spring Boot | MySQL",
+      icon: "terminal",
+      color: "#6366f1",
+      description: "Interactive coding and assessment platform built with React.js frontend and Java Spring Boot backend with MySQL database.",
+      longDescription: "Developed a full-stack interactive coding and assessment platform using React.js for the frontend and Java Spring Boot for the backend. Integrated MySQL database schema for managing user accounts, quiz modules, problem submissions, and leaderboards via RESTful APIs.",
+      tags: ["React.js", "Java", "Spring Boot", "MySQL", "RESTful APIs", "Full-Stack"],
+      github: "https://github.com/sowndharyaraja2203/Code-Quest",
+      demo: "https://code-quest-sound17.vercel.app/",
+      architecture: ["React Component UI", "Spring Boot REST API", "MySQL Relational Schema", "Quiz & Assessment Engine"]
+    },
     {
       id: "track-my-career",
       name: "Track My Career",
-      subtitle: "Java | Web Technologies",
+      subtitle: "Java | Web Technologies | Node.js | MongoDB",
       icon: "school",
       color: "#3b82f6",
       description: "Developed a career tracking platform to help students monitor their academic and professional progress.",
-      longDescription: "A career planning platform for students and job seekers. Features goal-setting, skill progress monitoring, and milestone tracking with a clean web-based interface.",
-      tags: ["Java", "HTML5", "CSS3", "JavaScript", "Node.js", "Express.js", "MongoDB"],
+      longDescription: "Developed a career tracking platform to help students monitor their academic and professional progress. Implemented goal-setting and milestone tracking features with a clean web-based interface.",
+      tags: ["Java", "HTML5", "CSS3", "JavaScript", "Node.js", "MongoDB"],
       github: "https://github.com/sowndharyaraja2203/skilllift",
       demo: "https://github.com/sowndharyaraja2203/skilllift",
-      architecture: ["Academic Tracking", "Goal Setting", "Progress Monitor", "Responsive UI"]
+      architecture: ["Academic Tracking", "Goal Setting", "Progress Monitor", "Clean Web UI"]
     },
     {
-      id: "network-packet-routing",
-      name: "Network Packet Routing",
-      subtitle: "Java | DSA | Computer Networks",
-      icon: "router",
+      id: "soil-neutralization",
+      name: "Automatic Soil Neutralization System",
+      subtitle: "IoT | pH Sensor",
+      icon: "sensors",
       color: "#8b5cf6",
-      description: "Developed a network packet routing simulation using graph algorithms to find the shortest path between routers.",
-      longDescription: "A Java-based network packet routing simulation that represents routers as graph nodes and connections as weighted edges. The system uses Dijkstra's shortest path algorithm to determine an efficient routing path for packets between source and destination routers.",
-      tags: ["Java", "DSA", "Graph Algorithms", "Dijkstra Algorithm", "Computer Networks"],
-      github: "https://github.com/sowndharyaraja2203/Network-Packet-Routing",
-      demo: "https://github.com/sowndharyaraja2203/Network-Packet-Routing",
-      architecture: ["Router Graph", "Packet Queue", "Shortest Path", "Routing Simulation"]
+      description: "Utilized a pH sensor to continuously monitor soil pH levels and provide real-time data to users.",
+      longDescription: "Utilized a pH sensor to continuously monitor soil pH levels and provide real-time data to users. Automated soil neutralization alerts to assist farmers in maintaining optimal crop growth conditions.",
+      tags: ["IoT", "pH Sensor", "Hardware Automation", "Real-Time Telemetry"],
+      github: "https://github.com/sowndharyaraja2203",
+      demo: "https://github.com/sowndharyaraja2203",
+      architecture: ["pH Sensor Module", "Real-Time Telemetry", "Neutralization Alert", "Optimal Growth Engine"]
     },
     {
       id: "smart-city-route-planner",
@@ -84,11 +102,11 @@ window.portfolioData = {
       icon: "alt_route",
       color: "#f59e0b",
       description: "Designed an efficient city route planning system using Data Structures & Algorithms concepts.",
-      longDescription: "Applied graph traversal algorithms to compute optimal routes across city nodes, calculating shortest paths and distance estimates in an interactive interface.",
+      longDescription: "Designed an efficient city route planning system using Data Structures & Algorithms concepts. Applied graph traversal algorithms to compute optimal routes across city nodes.",
       tags: ["Java", "DSA", "Graph Algorithms", "HTML5", "CSS3", "JavaScript"],
       github: "https://github.com/sowndharyaraja2203/smartcityrouteplanner",
       demo: "https://github.com/sowndharyaraja2203/smartcityrouteplanner",
-      architecture: ["Graph Traversal", "Node Calculator", "Distance Estimator", "Interactive UI"]
+      architecture: ["Graph Traversal", "Node Calculator", "Distance Estimator", "Interactive Route UI"]
     },
     {
       id: "hospital-appointment",
@@ -104,6 +122,7 @@ window.portfolioData = {
       architecture: ["Patient Login", "Doctor Listing", "Booking Engine", "History Portal"]
     }
   ],
+
   process: [
     {
       title: "Requirement Analysis",
@@ -111,17 +130,18 @@ window.portfolioData = {
     },
     {
       title: "UI/UX & Schema Design",
-      description: "Crafting intuitive responsive layouts (HTML/CSS) and robust database models."
+      description: "Crafting intuitive responsive layouts (React/HTML/CSS) and robust database models (MySQL/MongoDB)."
     },
     {
       title: "Algorithmic Development",
-      description: "Writing clean, modular code with strong Data Structures & Algorithms logic and API integration."
+      description: "Writing clean, modular code with strong Data Structures & Algorithms logic, Spring Boot REST endpoints, and API integration."
     },
     {
       title: "Testing & Deployment",
-      description: "Verifying edge cases, testing endpoints, managing version control with Git/GitHub, and deploying."
+      description: "Verifying edge cases, testing endpoints with Postman, managing version control with Git/GitHub, and deploying."
     }
   ],
+
   education: [
     {
       period: "2024 — 2028 (Expected)",
@@ -142,6 +162,7 @@ window.portfolioData = {
       grade: ""
     }
   ],
+
   experience: [
     {
       period: "15 Days Internship",
@@ -150,34 +171,42 @@ window.portfolioData = {
       description: "Gained hands-on experience in web development technologies including HTML and CSS. Worked on building and styling web pages, understanding real-world development workflows."
     }
   ],
+
   achievements: [
-  {
-    icon: "military_tech",
-    color: "#f59e0b",
-    title: "NPTEL Certification",
-    org: "National Programme on Technology Enhanced Learning",
-    description: "Completed certification course(s) on NPTEL, strengthening core CS fundamentals."
-  },
-  {
-    icon: "workspace_premium",
-    color: "#3b82f6",
-    title: "Coursera Certification",
-    org: "Managing, Describing and Analysing Data",
-    description: "Earned a certification focused on data management and analysis techniques."
-  },
-  {
-    icon: "code",
-    color: "#10b981",
-    title: "LeetCode Practice",
-    org: "Consistent DSA Problem Solving",
-    description: "Solved a growing number of problems on LeetCode, building strong Data Structures & Algorithms skills."
-  },
-  {
-    icon: "article",
-    color: "#f43f5e",
-    title: "Paper Presentation",
-    org: "KPR Institute of Engineering and Technology",
-    description: "Presented a technical paper, sharing research and ideas with peers and faculty."
-  }
-]
+    {
+      title: "24-Hour Hackathon",
+      organization: "SNS College of Technology",
+      icon: "emoji_events",
+      badge: "Hackathon",
+      description: "Participated in 24-Hour Hackathon at SNS College of Technology, building collaborative software solutions in an intensive time-constrained coding sprint."
+    },
+    {
+      title: "NPTEL Certification",
+      organization: "National Programme on Technology Enhanced Learning",
+      icon: "workspace_premium",
+      badge: "Certification",
+      description: "Completed certification courses on NPTEL demonstrating dedication to continuous learning and advanced technical coursework."
+    },
+    {
+      title: "Coursera Certification",
+      organization: "Coursera",
+      icon: "verified",
+      badge: "Data Analysis",
+      description: "Earned certification in Managing, Describing and Analysing Data, focusing on quantitative analytics and data-driven problem solving."
+    },
+    {
+      title: "LeetCode Problem Solving",
+      organization: "LeetCode",
+      icon: "code",
+      badge: "310+ Solved",
+      description: "Solved 310+ problems on LeetCode across Easy, Medium, and Hard tiers, demonstrating consistent practice in Data Structures & Algorithms."
+    },
+    {
+      title: "Paper Presentation",
+      organization: "KPR Institute of Engineering and Technology",
+      icon: "present_to_all",
+      badge: "Symposium",
+      description: "Presented technical research paper at national-level technical symposium at KPR Institute of Engineering and Technology."
+    }
+  ]
 };
