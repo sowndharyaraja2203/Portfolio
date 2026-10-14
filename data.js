@@ -12,8 +12,8 @@ window.portfolioData = {
     bio: "I am a third-year Computer Science and Engineering student with a passion for web development and creating user-friendly web applications. I enjoy building responsive websites using HTML, CSS, JavaScript, React.js, Java, Spring Boot, and modern web technologies, and I am eager to expand my skills through real-world projects and continuous learning.",
     email: "sowndharyaraja2203@gmail.com",
     github: "https://github.com/sowndharyaraja2203",
-    linkedin: "https://linkedin.com/in/SowndharyaR",
-    leetcode: "https://leetcode.com/u/sowndharyaraja2203",
+    linkedin: "https://www.linkedin.com/in/sowndharya-r-223827325?",
+    leetcode: "https://leetcode.com/u/sowndharya_raja-2203/",
     avatar: "./profile.jpeg",
     resumeUrl: "#resume"
   },
